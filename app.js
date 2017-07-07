@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/ironShop2');
 
 var index = require('./routes/index');
+var productsReviews = require('./routes/product-review');
 var products = require('./routes/products');
 
 var app = express();
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/', productsReviews);
 app.use('/products', products);
 
 
